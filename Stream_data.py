@@ -20,15 +20,15 @@ Titik_2_PSI = st.text_input('Input Pressure di titik 2 (PSI)')
 suspect_loct = ''
 
 # Prediction Button
-if LokasiKM is not None and st.button('Prediksi Lokasi'):
+if LokasiKM is not None and st.button('Prediksi Lokasi Kebocoran Trunkline'):
     try:
         prediksi_lokasi = LokasiKM.predict([[float(Titik_1_PSI), float(Titik_2_PSI)]])
         if prediksi_lokasi[0] == 0:
-            suspect_loct = 'Pipa Aman'
+            suspect_loct = 'Trunkline Aman'
         elif prediksi_lokasi[0] == 26.8:
             suspect_loct = 'Tidak Terdapat Fluida yang Mengalir'
         else:
-            suspect_loct = f'Terjadi di titik {prediksi_lokasi[0]} KM'
+            suspect_loct = f'Trunkline Bocor di Titik {prediksi_lokasi[0]} KM'
         st.success(suspect_loct)
     except Exception as e:
         st.error(f"Error predicting location: {e}")
