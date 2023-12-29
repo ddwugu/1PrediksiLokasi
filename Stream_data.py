@@ -10,7 +10,7 @@ except Exception as e:
     LokasiKM = None  # Assign None if there is an error loading the model
 
 # Web Title
-st.title('Pertamina Field Jambi')
+st.title('Finding Oil Losses Pertamina Field Jambi')
 
 # User Inputs
 Titik_1_PSI = st.text_input('Input Pressure di titik 1 (PSI)')
