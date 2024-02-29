@@ -3,14 +3,14 @@ import streamlit as st
 
 # Load the model
 try:
-    with open('Pred_lokasi.sav', 'rb') as file:
+    with open('Pred_lokasi11.sav', 'rb') as file:
         LokasiKM = pickle.load(file)
 except Exception as e:
     st.error(f"Error loading the model: {e}")
     LokasiKM = None  # Assign None if there is an error loading the model
 
 # Web Title
-st.title('Finding Oil Losses Pertamina Field Jambi')
+st.title('Pertamina Field Jambi')
 
 # User Inputs
 Titik_1_PSI = st.text_input('Input Pressure di titik 1 (PSI)')
@@ -20,15 +20,15 @@ Titik_2_PSI = st.text_input('Input Pressure di titik 2 (PSI)')
 suspect_loct = ''
 
 # Prediction Button
-if LokasiKM is not None and st.button('Prediksi Lokasi Kebocoran Trunkline'):
+if LokasiKM is not None and st.button('Prediksi Lokasi'):
     try:
         prediksi_lokasi = LokasiKM.predict([[float(Titik_1_PSI), float(Titik_2_PSI)]])
-        if prediksi_lokasi[0] == 0:
-            suspect_loct = 'Trunkline Aman'
-        elif prediksi_lokasi[0] == 26.8:
+        if prediksi_lokasi[0] == 0: #titik nol
+            suspect_loct = 'Pipa Aman'
+        elif prediksi_lokasi[0] == 26.8: #total panjang trunkline
             suspect_loct = 'Tidak Terdapat Fluida yang Mengalir'
         else:
-            suspect_loct = f'Trunkline Bocor di Titik {prediksi_lokasi[0]} KM'
+            suspect_loct = f'Terjadi di titik {prediksi_lokasi[0]} KM'
         st.success(suspect_loct)
     except Exception as e:
         st.error(f"Error predicting location: {e}")
