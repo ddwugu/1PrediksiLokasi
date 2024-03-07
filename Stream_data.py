@@ -25,7 +25,7 @@ if LokasiKM is not None and st.button('Prediksi Lokasi'):
         prediksi_lokasi = LokasiKM.predict([[float(Titik_1_PSI), float(Titik_2_PSI)]])
         if prediksi_lokasi[0] == 0: #titik nol
             suspect_loct = 'It is safe that there is no fluid flowing'
-        elif prediksi_lokasi[0] >= 26.40: #total panjang trunkline
+        elif prediksi_lokasi[0] >= 26: #total panjang trunkline
             suspect_loct = 'Safe, there are no leaks'
         else:
             suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM'
