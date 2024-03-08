@@ -11,7 +11,7 @@ except Exception as e:
 
 # Web Title
 st.title('Pertamina Field Jambi')
-
+st.subheader('Prediksi Lokasi Kebocoran Line BJG-TPN')
 # User Inputs
 Titik_1_PSI = st.text_input('Input Pressure di titik 1 (PSI)')
 Titik_2_PSI = st.text_input('Input Pressure di titik 2 (PSI)')
