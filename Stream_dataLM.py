@@ -10,8 +10,8 @@ def main():
     st.title('Pertamina Field Jambi-BJG-TPN')
     st.subheader('Prediksi Lokasi Kebocoran Line BJG-TPN Regresi Model')
 
-    Titik_1_PSI = st.text_input('Input delta pressure drop di MGS KAS (PSI)')
-    Titik_2_PSI = st.text_input('Input delta pressure drop di MOS (PSI)')
+    Titik_1_PSI = st.text_input('Input delta pressure drop di MGS BJG (PSI)')
+    Titik_2_PSI = st.text_input('Input delta pressure drop di BOOSTER (PSI)')
 
     if st.button('Prediksi Lokasi'):
         try:
