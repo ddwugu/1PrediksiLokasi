@@ -37,3 +37,6 @@ if LokasiKM is not None and st.button('Prediksi Lokasi'):
             st.warning("Masukkan tekanan yang valid untuk kedua titik.")
     except Exception as e:
         st.error(f"Error predicting location: {e}")
+
+# Shortcut Link
+st.markdown("[Opsi 2 : Prediksi Linear Model](https://1prediksilokasi-eld9x5crdkcrc69g3nzbgv.streamlit.app/)")
