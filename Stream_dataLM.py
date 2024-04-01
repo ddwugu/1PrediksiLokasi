@@ -29,8 +29,7 @@ def main():
         except Exception as e:
             st.error(f"Error predicting location: {e}")
 
-if __name__ == "__main__":
-    main()
+
 # Display the oil loss calculation section
 st.subheader('Perhitungan Oil Losses')
 
