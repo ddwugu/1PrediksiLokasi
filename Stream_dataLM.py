@@ -1,62 +1,73 @@
+Untuk menggabungkan kedua skrip tersebut dan menampilkan bagian "Display prediksi lokasi" di bagian atas dan bagian "Display the oil loss calculation section" di bawahnya, Anda dapat menggunakan struktur seperti ini:
+
+```python
 import streamlit as st
+
+# Display prediksi lokasi
 def predict_location(x1, x2):
     y = -38.58 - 0.20 * x1 + 1.04 * x2
     return y
 
 # Main Streamlit app
+def main():
+    st.title('Pertamina Field Jambi-BJG-TPN')
+    st.subheader('Prediksi Lokasi Kebocoran Line BJG-TPN Regresi Model')
 
-st.title('Pertamina Field Jambi-BJG-TPN')
-st.subheader('Prediksi Lokasi Kebocoran Line BJG-TPN Regresi Model')
+    Titik_1_PSI = st.text_input('Input delta pressure drop di MGS BJG (PSI)')
+    Titik_2_PSI = st.text_input('Input delta pressure drop di BOOSTER (PSI)')
 
-Titik_1_PSI = st.text_input('Input delta pressure drop di MGS BJG (PSI)')
-Titik_2_PSI = st.text_input('Input delta pressure drop di BOOSTER (PSI)')
+    if st.button('Prediksi Lokasi'):
+        try:
+            x1 = float(Titik_1_PSI)
+            x2 = float(Titik_2_PSI)
+            prediksi_lokasi = predict_location(x1, x2)
+                
+            if prediksi_lokasi <= 0: # titik nol
+                suspect_loct = 'Pipa Aman, Tidak Terdapat Fluida yang Mengalir'
+            elif prediksi_lokasi >= 26.38: # total panjang trunkline
+                suspect_loct = 'Tidak Terdapat Kebocoran'
+            else:
+                suspect_loct = f'Terjadi kebocoran di titik {prediksi_lokasi} KM'
+            st.success(suspect_loct)
+        except Exception as e:
+            st.error(f"Error predicting location: {e}")
 
-if st.button('Prediksi Lokasi'):
-    try:
-        x1 = float(Titik_1_PSI)
-        x2 = float(Titik_2_PSI)
-        prediksi_lokasi = predict_location(x1, x2)
-            
-        if prediksi_lokasi <= 0: # titik nol
-            suspect_loct = 'Pipa Aman, Tidak Terdapat Fluida yang Mengalir'
-        elif prediksi_lokasi >= 26.38: # total panjang trunkline
-            suspect_loct = 'Tidak Terdapat Kebocoran'
-    else:
-        suspect_loct = f'Terjadi kebocoran di titik {prediksi_lokasi} KM'
-    st.success(suspect_loct)
-except Exception as e:
-    st.error(f"Error predicting location: {e}")
+    # Display the oil loss calculation section
+    st.subheader('Perhitungan Oil Losses')
 
+    def predict_loss(R1, P1, P2, s):
+        R2 = P2 * R1 / P1
+        los = R2 - R1
+        y = los * s
+        return y
 
-# Display the oil loss calculation section
-st.subheader('Perhitungan Oil Losses')
+    Rate1 = st.text_input('Input rate awal(BBL/Jam)')
+    Pressure1 = st.text_input('Input pressure 1 saat rate awal (PSI)')
+    Pressure2 = st.text_input('Input pressure 2 saat terjadi pressure drop (PSI)')
+    Durasi = st.text_input('Durasi pressure drop (Jam)')
 
-def predict_loss(R1, P1, P2, s):
-    R2 = P2 * R1 / P1
-    los = R2 - R1
-    y = los * s
-    return y
+    if st.button('Hitung Losses'):
+        try:
+            R1 = float(Rate1)
+            P1 = float(Pressure1)
+            P2 = float(Pressure2)
+            s = float(Durasi) # Perbaikan pada nama variabel
+            Hitung_Losses = predict_loss(R1, P1, P2, s) # Perbaikan pada argumen
 
-Rate1 = st.text_input('Input rate awal(BBL/Jam)')
-Pressure1 = st.text_input('Input pressure 1 saat rate awal (PSI)')
-Pressure2 = st.text_input('Input pressure 2 saat terjadi pressure drop (PSI)')
-Durasi = st.text_input('Durasi pressure drop (Jam)')
+            if Hitung_Losses < 0: # titik nol
+                suspect_loss = f'Terjadi losses sebesar {Hitung_Losses} BBL/Jam '
+            elif Hitung_Losses > 0: # total panjang trunkline
+                suspect_loss = f'Gain sebesar {Hitung_Losses} BBL/Jam'
+            else:
+                suspect_loss = f'Tidak terjadi losses'
+            st.success(suspect_loss)
+        except Exception as e:
+            st.error(f"Error predicting location: {e}")
 
-if st.button('Hitung Losses'):
-    try:
-        R1 = float(Rate1)
-        P1 = float(Pressure1)
-        P2 = float(Pressure2)
-        s = float(Durasi) # Perbaikan pada nama variabel
-        Hitung_Losses = predict_loss(R1, P1, P2, s) # Perbaikan pada argumen
+    st.markdown("[Opsi 2 : Prediksi Linear Model](https://1prediksilokasi-eld9x5crdkcrc69g3nzbgv.streamlit.app/)")
 
-        if Hitung_Losses < 0: # titik nol
-            suspect_loss = f'Terjadi losses sebesar {Hitung_Losses} BBL/Jam '
-        elif Hitung_Losses > 0: # total panjang trunkline
-            suspect_loss = f'Gain sebesar {Hitung_Losses} BBL/Jam'
-        else:
-            suspect_loss = f'Tidak terjadi losses'
-        st.success(suspect_loss)
-    except Exception as e:
-        st.error(f"Error predicting location: {e}")
+if __name__ == "__main__":
+    main()
+```
 
+Dengan struktur seperti di atas, bagian "Display prediksi lokasi" akan ditampilkan di bagian atas, diikuti oleh bagian "Display the oil loss calculation section" di bawahnya.
