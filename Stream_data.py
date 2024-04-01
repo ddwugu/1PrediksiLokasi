@@ -39,7 +39,6 @@ if LokasiKM is not None and st.button('Prediksi Lokasi'):
         st.error(f"Error predicting location: {e}") 
 
 # Display the oil loss calculation section
-st.title('Pertamina Field Jambi-BJG-TPN')
 st.subheader('Perhitungan Oil Losses')
 
 def predict_loss(R1, P1, P2, s):
@@ -48,7 +47,7 @@ def predict_loss(R1, P1, P2, s):
     y = los * s
     return y
 
-Rate1 = st.text_input('Input rate awal(bbl/jam)')
+Rate1 = st.text_input('Input rate awal(BBL/Jam)')
 Pressure1 = st.text_input('Input pressure 1 saat rate awal (PSI)')
 Pressure2 = st.text_input('Input pressure 2 saat terjadi pressure drop (PSI)')
 Durasi = st.text_input('Durasi pressure drop (Jam)')
@@ -62,9 +61,9 @@ if st.button('Hitung Losses'):
         Hitung_Losses = predict_loss(R1, P1, P2, s) # Perbaikan pada argumen
 
         if Hitung_Losses < 0: # titik nol
-            suspect_loss = f'Terjadi losses sebesar {Hitung_Losses} bbl/jam '
+            suspect_loss = f'Terjadi losses sebesar {Hitung_Losses} BBL/Jam/jam '
         elif Hitung_Losses > 0: # total panjang trunkline
-            suspect_loss = f'Gain sebesar {Hitung_Losses} bbl/jam'
+            suspect_loss = f'Gain sebesar {Hitung_Losses} BBL/Jam'
         else:
             suspect_loss = f'Tidak terjadi losses'
         st.success(suspect_loss)
