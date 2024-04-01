@@ -13,8 +13,8 @@ except Exception as e:
 st.title('Pertamina Field Jambi')
 st.subheader('Prediksi Lokasi Kebocoran Line BJG-TPN')
 # User Inputs for leak prediction
-Titik_1_PSI = st.text_input('Input Pressure di titik 1 (PSI)')
-Titik_2_PSI = st.text_input('Input Pressure di titik 2 (PSI)')
+Titik_1_PSI = st.text_input('Input Pressure di MGS BJG (PSI)')
+Titik_2_PSI = st.text_input('Input Pressure di BOOSTER (PSI)')
 a = 135 - float(Titik_1_PSI) if Titik_1_PSI else None
 b = 86 - float(Titik_2_PSI) if Titik_2_PSI else None
 
