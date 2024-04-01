@@ -1,6 +1,3 @@
-Untuk menggabungkan kedua skrip tersebut dan menampilkan bagian "Display prediksi lokasi" di bagian atas dan bagian "Display the oil loss calculation section" di bawahnya, Anda dapat menggunakan struktur seperti ini:
-
-```python
 import streamlit as st
 
 # Display prediksi lokasi
@@ -68,6 +65,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
-
-Dengan struktur seperti di atas, bagian "Display prediksi lokasi" akan ditampilkan di bagian atas, diikuti oleh bagian "Display the oil loss calculation section" di bawahnya.
