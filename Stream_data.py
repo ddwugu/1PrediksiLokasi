@@ -42,6 +42,12 @@ if LokasiKM is not None and st.button('Prediksi Lokasi'):
 st.title('Pertamina Field Jambi-BJG-TPN')
 st.subheader('Perhitungan Oil Losses')
 
+def predict_loss(R1, P1, P2, s):
+    R2 = P2 * R1 / P1
+    los = R2 - R1
+    y = los * s
+    return y
+
 Rate1 = st.text_input('Input rate awal(bbl/jam)')
 Pressure1 = st.text_input('Input pressure 1 saat rate awal (PSI)')
 Pressure2 = st.text_input('Input pressure 2 saat terjadi pressure drop (PSI)')
@@ -64,3 +70,4 @@ if st.button('Hitung Losses'):
         st.success(suspect_loss)
     except Exception as e:
         st.error(f"Error predicting location: {e}")
+st.markdown("[Opsi 2 : Prediksi Linear Model](https://1prediksilokasi-eld9x5crdkcrc69g3nzbgv.streamlit.app/)")
