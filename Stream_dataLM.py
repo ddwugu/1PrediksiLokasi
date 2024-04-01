@@ -61,7 +61,7 @@ def main():
         except Exception as e:
             st.error(f"Error predicting location: {e}")
 
-    st.markdown("[Opsi 2 : Prediksi Linear Model](https://1prediksilokasi-eld9x5crdkcrc69g3nzbgv.streamlit.app/)")
+   
 
 if __name__ == "__main__":
     main()
