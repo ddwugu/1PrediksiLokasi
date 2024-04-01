@@ -6,7 +6,7 @@ def predict_location(x1, x2):
     return y
 
 # Main Streamlit app
-def main():
+
     st.title('Pertamina Field Jambi-BJG-TPN')
     st.subheader('Prediksi Lokasi Kebocoran Line BJG-TPN Regresi Model')
 
