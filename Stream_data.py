@@ -12,7 +12,7 @@ except Exception as e:
 # Web Title
 st.title('Pertamina Field Jambi')
 st.subheader('Prediksi Lokasi Kebocoran Line BJG-TPN')
-# User Inputs
+# User Inputs for leak prediction
 Titik_1_PSI = st.text_input('Input Pressure di titik 1 (PSI)')
 Titik_2_PSI = st.text_input('Input Pressure di titik 2 (PSI)')
 a = 135 - float(Titik_1_PSI) if Titik_1_PSI else None
@@ -21,7 +21,7 @@ b = 86 - float(Titik_2_PSI) if Titik_2_PSI else None
 # Code prediction
 suspect_loct = ''
 
-# Prediction Button
+# Prediction Button for leak prediction
 if LokasiKM is not None and st.button('Prediksi Lokasi'):
     try:
         if a is not None and b is not None:
@@ -38,5 +38,29 @@ if LokasiKM is not None and st.button('Prediksi Lokasi'):
     except Exception as e:
         st.error(f"Error predicting location: {e}") 
 
-# Shortcut link
-st.markdown("[Opsi 2 : Prediksi Linear Model](https://1prediksilokasi-eld9x5crdkcrc69g3nzbgv.streamlit.app/)")
+# Display the oil loss calculation section
+st.title('Pertamina Field Jambi-BJG-TPN')
+st.subheader('Perhitungan Oil Losses')
+
+Rate1 = st.text_input('Input rate awal(bbl/jam)')
+Pressure1 = st.text_input('Input pressure 1 saat rate awal (PSI)')
+Pressure2 = st.text_input('Input pressure 2 saat terjadi pressure drop (PSI)')
+Durasi = st.text_input('Durasi pressure drop (Jam)')
+
+if st.button('Hitung Losses'):
+    try:
+        R1 = float(Rate1)
+        P1 = float(Pressure1)
+        P2 = float(Pressure2)
+        s = float(Durasi) # Perbaikan pada nama variabel
+        Hitung_Losses = predict_loss(R1, P1, P2, s) # Perbaikan pada argumen
+
+        if Hitung_Losses < 0: # titik nol
+            suspect_loss = f'Terjadi losses sebesar {Hitung_Losses} bbl/jam '
+        elif Hitung_Losses > 0: # total panjang trunkline
+            suspect_loss = f'Gain sebesar {Hitung_Losses} bbl/jam'
+        else:
+            suspect_loss = f'Tidak terjadi losses'
+        st.success(suspect_loss)
+    except Exception as e:
+        st.error(f"Error predicting location: {e}")
