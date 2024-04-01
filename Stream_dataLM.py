@@ -6,7 +6,7 @@ def predict_location(x1, x2):
     return y
 
 # Main Streamlit app
-
+def main():
     st.title('Pertamina Field Jambi-BJG-TPN')
     st.subheader('Prediksi Lokasi Kebocoran Line BJG-TPN Regresi Model')
 
@@ -61,3 +61,5 @@ if st.button('Hitung Losses'):
         st.success(suspect_loss)
     except Exception as e:
         st.error(f"Error predicting location: {e}")
+if __name__ == "__main__":
+    main()
