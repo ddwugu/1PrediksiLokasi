@@ -39,7 +39,7 @@ if LokasiKM is not None and st.button('Prediksi Lokasi'):
                 elif 2 < prediksi_lokasi[0] < 3:
                     suspect_loct = 'koordinat kebocoran -1.675007, 103.884710'
                 elif 3 < prediksi_lokasi[0] < 30:
-                    suspect_loct = 'koordinat kebocoran -1.675007, 103.684910'
+                    suspect_loct = 'Estimasi lokasi kebocoran {prediksi_lokasi[0]} KM, koordinat kebocoran -1.675007, 103.684910'
             st.success(suspect_loct)
         else:
             st.warning("Masukkan tekanan yang valid untuk kedua titik.")
