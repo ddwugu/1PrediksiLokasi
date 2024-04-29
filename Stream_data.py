@@ -32,6 +32,59 @@ if LokasiKM is not None and st.button('Prediksi Lokasi'):
                 suspect_loct = 'Safe, there are no leaks'
             else:
                 suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM'
+                if 0 < prediksi_lokasi[0] < 1:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°19'57.98"E, 1°47'59.69"S'
+                elif 1 < prediksi_lokasi[0] < 2:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°20'17.93"E, 1°47'58.93"S '
+                elif 2 < prediksi_lokasi[0] < 3:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°20'40.53"E, 1°47'48.23"S '
+                elif 3 < prediksi_lokasi[0] < 4:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°20'44.55"E, 1°47'24.62"S '
+		elif 4 < prediksi_lokasi[0] < 5:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°21'5.05"E, 1°47'1.34"S '
+                elif 5 < prediksi_lokasi[0] < 6:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°21'29.99"E, 1°47'12.91"S '
+                elif 6 < prediksi_lokasi[0] < 7:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°22'0.22"E, 1°47'13.11"S '
+		elif 7 < prediksi_lokasi[0] < 8:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°22'32.42"E, 1°47'23.79"S '
+                elif 8 < prediksi_lokasi[0] < 9:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°23'4.39"E, 1°47'18.18"S'
+                elif 9 < prediksi_lokasi[0] < 10:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°23'39.56"E, 1°47'19.81"S '
+		elif 10 < prediksi_lokasi[0] < 11:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran   103°24'9.91"E, 1°47'27.14"S '
+                elif 11 < prediksi_lokasi[0] < 12:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°24'43.64"E, 1°47'38.98"S'
+                elif 12 < prediksi_lokasi[0] < 13:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°25'12.39"E, 1°47'43.83"S '
+		elif 13 < prediksi_lokasi[0] < 14:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°25'43.48"E, 1°47'45.28"S '
+                elif 14 < prediksi_lokasi[0] < 15:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°26'19.78"E, 1°47'30.72"S '
+                elif 15 < prediksi_lokasi[0] < 16:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°26'43.35"E, 1°47'24.01"S '
+		elif 16 < prediksi_lokasi[0] < 17:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°27'18.93"E, 1°47'3.66"S '
+                elif 17 < prediksi_lokasi[0] < 18:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°27'40.66"E, 1°47'3.00"S '
+                elif 18 < prediksi_lokasi[0] < 19:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°28'11.41"E, 1°47'3.48"S '
+		elif 19 < prediksi_lokasi[0] < 20:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°28'42.61"E, 1°47'19.39"S '
+                elif 20 < prediksi_lokasi[0] < 21:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°29'3.89"E, 1°47'29.24"S '
+                elif 21 < prediksi_lokasi[0] < 22:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°29'24.99"E, 1°47'8.98"S '
+		elif 22 < prediksi_lokasi[0] < 23:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°29'52.50"E, 1°47'29.88"S'
+                elif 23 < prediksi_lokasi[0] < 24:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°30'13.68"E, 1°47'18.40"S'
+                elif 24 < prediksi_lokasi[0] < 25:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°30'33.24"E, 1°47'32.16"S '
+		elif 25 < prediksi_lokasi[0] < 26:
+                    suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM, koordinat kebocoran 103°30'56.78"E, 1°47'51.58"S'
+
             st.success(suspect_loct)
         else:
             st.warning("Masukkan tekanan yang valid untuk kedua titik.")
