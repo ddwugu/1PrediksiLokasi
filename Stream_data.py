@@ -32,6 +32,14 @@ if LokasiKM is not None and st.button('Prediksi Lokasi'):
                 suspect_loct = 'Safe, there are no leaks'
             else:
                 suspect_loct = f'!!!estimated leak location {prediksi_lokasi[0]} KM'
+                if 0 < prediksi_lokasi[0] < 1:
+                    suspect_loct = 'koordinat kebocoran -1.675007, 103.684710'
+                elif 1 < prediksi_lokasi[0] < 2:
+                    suspect_loct = 'koordinat kebocoran -1.675207, 103.684710'
+                elif 2 < prediksi_lokasi[0] < 3:
+                    suspect_loct = 'koordinat kebocoran -1.675007, 103.884710'
+                elif 3 < prediksi_lokasi[0] < 30:
+                    suspect_loct = 'koordinat kebocoran -1.675007, 103.684910'
             st.success(suspect_loct)
         else:
             st.warning("Masukkan tekanan yang valid untuk kedua titik.")
