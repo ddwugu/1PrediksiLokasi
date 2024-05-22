@@ -2,7 +2,7 @@ import pickle
 import streamlit as st
 
 st.title('Pertamina Field Jambi')
-st.subheader('Prediksi Lokasi Kebocoran Line BJG-TPN')
+st.subheader('Prediksi Oil Losses')
 
 # Display the oil loss calculation section
 st.subheader('Perhitungan Oil Losses')
@@ -58,5 +58,3 @@ if st.button('Hitung Losses'):
 
     except Exception as e:
         st.error(f"Error predicting location: {e}")
-
-st.markdown("[Opsi 2 : Prediksi Linear Model](https://1prediksilokasi-eld9x5crdkcrc69g3nzbgv.streamlit.app/)")
