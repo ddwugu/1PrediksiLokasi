@@ -49,10 +49,10 @@ if st.button('Hitung Losses'):
         Rb5 = float(RateB5) if RateB5 else None
         Rb6 = float(RateB6) if RateB6 else None
 
-        Hitung_Losses = predict_loss(Rb1, Rb2, Rb3, Rb4, Rb5, Rb6, Tb1, Ab)
+        Hitung_l = predict_loss(Rb1, Rb2, Rb3, Rb4, Rb5, Rb6, Tb1, Ab)
         
-        if Hitung_Losses is not None:
-            st.success(f"Banyaknya Oil losses adalah: {Hitung_Losses} BBL")
+        if Hitung_l is not None:
+            st.success(f"Banyaknya Oil losses adalah: {Hitung_l} BBL")
         else:
             st.warning("Input tidak valid untuk menghitung losses.")
 
