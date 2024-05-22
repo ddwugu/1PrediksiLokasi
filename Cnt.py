@@ -40,13 +40,18 @@ with col2:
     RateB5 = st.text_input('Rate (BBL/JAM) - 5', key='RateB5')
 
 with col3:
+    # Add refresh icon at the top of the column
+    refresh_button_html = """
+    <div style='display: flex; justify-content: flex-end;'>
+        <button onclick="location.reload();" style="background: none; border: none; cursor: pointer;">
+            <img src="https://img.icons8.com/ios-filled/50/000000/refresh.png" alt="Refresh" width="24" height="24">
+        </button>
+    </div>
+    """
+    components.html(refresh_button_html, height=30)
+    
     RateB3 = st.text_input('Rate (BBL/JAM) - 3', key='RateB3')
     RateB6 = st.text_input('Rate (BBL/JAM) - 6', key='RateB6')
-
-# Add refresh button in the last column
-with col3:
-    if st.button('Refresh', key='refresh'):
-        st.experimental_rerun()
 
 if st.button('Hitung Losses'):
     try:
