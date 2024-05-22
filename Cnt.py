@@ -39,6 +39,7 @@ with col2:
     RateB5 = st.text_input('Rate (BBL/JAM) - 5', key='RateB5')
 
 with col3:
+    
     RateB3 = st.text_input('Rate (BBL/JAM) - 3', key='RateB3')
     RateB6 = st.text_input('Rate (BBL/JAM) - 6', key='RateB6')
 
