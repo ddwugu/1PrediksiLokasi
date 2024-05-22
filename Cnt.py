@@ -28,14 +28,14 @@ def predict_loss(Rb1, Rb2, Rb3, Rb4, Rb5, Rb6, Tb1, Ab):
     else:
         return None
 
-TimeB1 = st.text_input('Durasi Shipping')
-AngkaBJG = st.text_input('Input Angka shipping MGS (BBL)')
-RateB1 = st.text_input('Input Rate (BBL/JAM)')
-RateB2 = st.text_input('Input Rate (BBL/JAM)')
-RateB3 = st.text_input('Input Rate (BBL/JAM)')
-RateB4 = st.text_input('Input Rate (BBL/JAM)')
-RateB5 = st.text_input('Input Rate (BBL/JAM)')
-RateB6 = st.text_input('Input Rate (BBL/JAM)')
+TimeB1 = st.text_input('Durasi Shipping', key='TimeB1')
+AngkaBJG = st.text_input('Input Angka shipping MGS (BBL)', key='AngkaBJG')
+RateB1 = st.text_input('Input Rate (BBL/JAM) - 1', key='RateB1')
+RateB2 = st.text_input('Input Rate (BBL/JAM) - 2', key='RateB2')
+RateB3 = st.text_input('Input Rate (BBL/JAM) - 3', key='RateB3')
+RateB4 = st.text_input('Input Rate (BBL/JAM) - 4', key='RateB4')
+RateB5 = st.text_input('Input Rate (BBL/JAM) - 5', key='RateB5')
+RateB6 = st.text_input('Input Rate (BBL/JAM) - 6', key='RateB6')
 
 if st.button('Hitung Losses'):
     try:
@@ -56,5 +56,4 @@ if st.button('Hitung Losses'):
             st.warning("Input tidak valid untuk menghitung losses.")
     except Exception as e:
         st.error(f"Error predicting location: {e}")
-
 
