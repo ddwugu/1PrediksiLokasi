@@ -15,9 +15,8 @@ def main():
 
     if st.button('Prediksi Lokasi'):
         try:
-            
-            x1 = float(Titik_1_PSI)
-            x2 = float(Titik_2_PSI)
+            a = 135 - float(Titik_1_PSI) if Titik_1_PSI else None
+            b = 86 - float(Titik_2_PSI) if Titik_2_PSI else None
             prediksi_lokasi = predict_location(a, b)
                 
             if prediksi_lokasi <= 0: # titik nol
