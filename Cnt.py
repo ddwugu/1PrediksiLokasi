@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 st.title('Pertamina Field Jambi')
 st.subheader('Perhitungan Oil Losses')
@@ -39,9 +40,13 @@ with col2:
     RateB5 = st.text_input('Rate (BBL/JAM) - 5', key='RateB5')
 
 with col3:
-    
     RateB3 = st.text_input('Rate (BBL/JAM) - 3', key='RateB3')
     RateB6 = st.text_input('Rate (BBL/JAM) - 6', key='RateB6')
+
+# Add refresh button in the last column
+with col3:
+    if st.button('Refresh', key='refresh'):
+        st.experimental_rerun()
 
 if st.button('Hitung Losses'):
     try:
