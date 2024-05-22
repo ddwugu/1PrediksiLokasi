@@ -1,4 +1,3 @@
-import pickle
 import streamlit as st
 
 st.title('Pertamina Field Jambi')
@@ -31,12 +30,12 @@ def predict_loss(Rb1, Rb2, Rb3, Rb4, Rb5, Rb6, Tb1, Ab):
 
 TimeB1 = st.text_input('Durasi Shipping')
 AngkaBJG = st.text_input('Input Angka shipping MGS (BBL)')
-RateB1 = st.text_input('Input Rate  (BBL/JAM)')
-RateB2 = st.text_input('Input Rate  (BBL/JAM)')
-RateB3 = st.text_input('Input Rate  (BBL/JAM)')
-RateB4 = st.text_input('Input Rate  (BBL/JAM)')
-RateB5 = st.text_input('Input Rate  (BBL/JAM)')
-RateB6 = st.text_input('Input Rate  (BBL/JAM)')
+RateB1 = st.text_input('Input Rate (BBL/JAM)')
+RateB2 = st.text_input('Input Rate (BBL/JAM)')
+RateB3 = st.text_input('Input Rate (BBL/JAM)')
+RateB4 = st.text_input('Input Rate (BBL/JAM)')
+RateB5 = st.text_input('Input Rate (BBL/JAM)')
+RateB6 = st.text_input('Input Rate (BBL/JAM)')
 
 if st.button('Hitung Losses'):
     try:
@@ -55,6 +54,7 @@ if st.button('Hitung Losses'):
             st.success(f"Banyaknya Oil losses adalah: {Hitung_l} BBL")
         else:
             st.warning("Input tidak valid untuk menghitung losses.")
-
     except Exception as e:
         st.error(f"Error predicting location: {e}")
+
+
