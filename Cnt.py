@@ -1,7 +1,6 @@
 import streamlit as st
 
 st.title('Pertamina Field Jambi')
-st.subheader('Prediksi Oil Losses')
 
 # Display the oil loss calculation section
 st.subheader('Perhitungan Oil Losses')
